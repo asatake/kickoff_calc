@@ -1,21 +1,22 @@
 h1 {
     text-align: center
-    font-size: 60px;
+    font-size: 40px;
 }
 
 body {
-    font-size: 30px;
+    font-size: 18px;
+    width: 95%;
 }
 
 div {
-    margin: 5px 10px;
+    margin: 5px;
 }
 
 input {
     position: center;
-    font-size: 25px;
-    width: 120px;
-    height: 30px;
+    font-size: 17px;
+    width: 80px;
+    height: 20px;
 }
 
 table, td, th {
@@ -28,19 +29,19 @@ table {
 }
 
 select {
-    font-size: 30px;
+    font-size: 20px;
 }
 
 button {
-    font-size: 40px;
-    width: 200px;
+    font-size: 30px;
+    width: 100%;
     height: 100%;
     background: #da2;
 }
 
 .input {
     display: grid;
-    grid-template-columns: 700px 1fr;
+    grid-template-columns: 300px 1fr;
 }
 
 
