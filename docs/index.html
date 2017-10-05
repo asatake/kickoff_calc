@@ -27,6 +27,40 @@
             </div>
         </div>
 
+
         <script type="text/javascript" src="./js/main.js"></script>
+        <script type="text/javascript">
+         var tbody = document.getElementById('t-in');
+         for (i = 1; i <= team; i++){
+             var tr = document.createElement('tr');
+             var td0 = document.createElement('td');
+             td0.innerHTML = 'チーム' + i;
+             tr.appendChild(td0);
+             var td1 = document.createElement('td');
+             td1.innerHTML = 0;
+             tr.appendChild(td1);
+             var td2 = document.createElement('td');
+             td2.innerHTML = '<input id="t" type="text" />';
+             tr.appendChild(td2);
+             var td3 = document.createElement('td');
+             var pd = '<select id="sel' + i + '">';
+             for (j = 1; j <= 4; j++) {
+                 pd += '<option value="' + j + '">' + j + '</option>';
+             }
+             pd += '</select>';
+             td3.innerHTML = pd;
+             tr.appendChild(td3);
+             var sel = document.getElementById('sel' + i);
+             tbody.appendChild(tr);
+         }
+
+         var tbody = document.getElementById('t-r');
+         var tr = document.createElement('tr');
+         for (i = 1; i <= team; i++){
+             var td1 = document.createElement('td');
+             td1.innerHTML = 'result';
+             tr.appendChild(td1);
+         }
+        </script>
     </body>
 </html>
