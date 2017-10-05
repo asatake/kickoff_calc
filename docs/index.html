@@ -7,55 +7,60 @@
     </head>
     <body>
         <h1>計算機</h1>
-        <h2>1回戦</h2>
         <div class="input">
             <div class="item-1">
-                <input id="f-team1" name="" type="text" value=""/>
-                <button onclick="calc();">計算</button>
+                <table>
+                    <thead>
+                        <tr>
+                            <th>チーム</th>
+                            <th>持ち点</th>
+                            <th>掛け金</th>
+                            <th>どこ</th>
+                        </tr>
+                    </thead>
+                    <tbody id="t-in">
+                    </tbody>
+                </table>
             </div>
             <div class="item-2">
-                <div id="first-result">
-                    <p>result</p>
-                </div>
-            </div>
-        </div>
-        <h2>2回戦</h2>
-        <div class="input">
-            <div class="item-1">
-                <input id="s-team1" name="" type="text" value=""/>
-                <button onclick="calc();">計算</button>
-            </div>
-            <div class="item-2">
-                <div id="second-result">
-                    <p>result</p>
-                </div>
-            </div>
-        </div>
-        <h2>3回戦</h2>
-        <div class="input">
-            <div class="item-1">
-                <input id="t-team1" name="" type="text" value=""/>
-                <button onclick="calc();">計算</button>
-            </div>
-            <div class="item-2">
-                <div id="third-result">
-                    <p>result</p>
-                </div>
-            </div>
-        </div>
-        <h2>4回戦</h2>
-        <div class="input">
-            <div class="item-1">
-                <input id="fo-team1" name="" type="text" value=""/>
-                <button onclick="calc();">計算</button>
-            </div>
-            <div class="item-2">
-                <div id="fourth-result">
-                    <p>result</p>
-                </div>
+                <button onclick="calc()">計算</button>
             </div>
         </div>
 
+
         <script type="text/javascript" src="./js/main.js"></script>
+        <script type="text/javascript">
+         var tbody = document.getElementById('t-in');
+         for (i = 1; i <= team; i++){
+             var tr = document.createElement('tr');
+             var td0 = document.createElement('td');
+             td0.innerHTML = 'チーム' + i;
+             tr.appendChild(td0);
+             var td1 = document.createElement('td');
+             td1.innerHTML = 0;
+             tr.appendChild(td1);
+             var td2 = document.createElement('td');
+             td2.innerHTML = '<input id="t" type="text" />';
+             tr.appendChild(td2);
+             var td3 = document.createElement('td');
+             var pd = '<select id="sel' + i + '">';
+             for (j = 1; j <= 4; j++) {
+                 pd += '<option value="' + j + '">' + j + '</option>';
+             }
+             pd += '</select>';
+             td3.innerHTML = pd;
+             tr.appendChild(td3);
+             var sel = document.getElementById('sel' + i);
+             tbody.appendChild(tr);
+         }
+
+         var tbody = document.getElementById('t-r');
+         var tr = document.createElement('tr');
+         for (i = 1; i <= team; i++){
+             var td1 = document.createElement('td');
+             td1.innerHTML = 'result';
+             tr.appendChild(td1);
+         }
+        </script>
     </body>
 </html>
