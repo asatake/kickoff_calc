@@ -114,13 +114,18 @@ function main() {
 
 // 計算の主処理
 function calc(pointArray){
-    var ods = [
-        {one: 2, two: 4, three: 6, four: 8},
-        {one: 2, two: 4, three: 6, four: 8},
-        {one: 2, two: 4, three: 6, four: 8},
-        {one: 2, two: 4, three: 6, four: 8},
-    ];
     var result = [];
+    // オッズ
+    var one = document.getElementById('ods-1');
+    var two = document.getElementById('ods-2');
+    var three = document.getElementById('ods-3');
+    var four = document.getElementById('ods-4');
+    var ods = {one: Number(one.value),
+               two: Number(two.value),
+               three: Number(three.value),
+               four: Number(four.value)};
+    console.log(ods);
+
     var battle = document.getElementById('battle'); // n回戦
     var f = document.getElementById('first'); // n番が1位だった
     for(var i in pointArray) {
@@ -131,16 +136,16 @@ function calc(pointArray){
         if (sel.selectedIndex === f.selectedIndex) {
             switch (Number(sel.selectedIndex)) {
             case 0:
-                point += latch.value * ods[battle.selectedIndex].one;
+                point += latch.value * ods.one;
                 break;
             case 1:
-                point += latch.value * ods[battle.selectedIndex].two;
+                point += latch.value * ods.two;
                 break;
             case 2:
-                point += latch.value * ods[battle.selectedIndex].three;
+                point += latch.value * ods.three;
                 break;
             case 3:
-                point += latch.value * ods[battle.selectedIndex].four;
+                point += latch.value * ods.four;
                 break;
             default:
                 point += 0;
