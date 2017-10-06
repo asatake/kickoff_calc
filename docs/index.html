@@ -1,82 +1,124 @@
 <!doctype html>
 <html lang="ja">
-    <head>
-        <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1"/>
-        <link href="./css/style.css" rel="stylesheet"/>
-        <title>計算機</title>
-    </head>
-    <body>
-        <h1>計算機</h1>
-        <div class="head">
-            <div class="item-a">
-                <p>n回戦</p>
-                <select id="battle" name="battle-number">
-                    <option value="0">1回戦</option>
-                    <option value="1">2回戦</option>
-                    <option value="2">3回戦</option>
-                    <option value="3">4回戦</option>
-                </select>
-            </div>
-            <div class="item-b">
-                <p>1位</p>
-                <select id="first" name="battle-number">
-                    <option value="0">1</option>
-                    <option value="1">2</option>
-                    <option value="2">3</option>
-                    <option value="3">4</option>
-                </select>
+
+<head>
+    <meta charset="UTF-8" name="viewport" content="width=device-width,initial-scale=1" />
+    <link href="./css/style.css" rel="stylesheet" />
+    <title>計算機</title>
+</head>
+
+<body>
+    <h1>計算機</h1>
+    <div class="head">
+        <div class="item-a">
+            <div class="head-left">
+                <div class="item-f">
+                    <p>n回戦</p>
+                    <select id="battle" name="battle-number" onchange="reset();">
+                        <option value="0">1回戦</option>
+                        <option value="1">2回戦</option>
+                        <option value="2">3回戦</option>
+                        <option value="3">4回戦</option>
+                    </select>
+                </div>
+                <div class="item-one">
+                    <p>no1</p>
+                    <select id="ods-1" name="ods_fir">
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div class="item-two">
+                    <p>no2</p>
+                    <select id="ods-2" name="ods_sec">
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div class="item-three">
+                    <p>no3</p>
+                    <select id="ods-3" name="ods_thr">
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
+                <div class="item-four">
+                    <p>no4</p>
+                    <select id="ods-4" name="ods_for">
+                        <option value="2">2</option>
+                        <option value="4">4</option>
+                        <option value="6">6</option>
+                        <option value="8">8</option>
+                    </select>
+                </div>
             </div>
         </div>
-        <div class="input">
-            <div class="item-1">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>チーム</th>
-                            <th>持ち点</th>
-                            <th>掛け金</th>
-                            <th>どこに</th>
-                        </tr>
-                    </thead>
-                    <tbody id="t-in">
-                    </tbody>
-                </table>
-            </div>
-            <div class="item-2">
-                <button onclick="calcConfirm()">計算</button>
-            </div>
+        <div class="item-b">
+            <p>1位</p>
+            <select id="first" name="rank">
+                <option value="0">1</option>
+                <option value="1">2</option>
+                <option value="2">3</option>
+                <option value="3">4</option>
+            </select>
         </div>
+    </div>
+    <div class="input">
+        <div class="item-1">
+            <table>
+                <thead>
+                    <tr>
+                        <th>チーム</th>
+                        <th>持ち点</th>
+                        <th>掛け金</th>
+                        <th>どこに</th>
+                    </tr>
+                </thead>
+                <tbody id="t-in">
+                </tbody>
+            </table>
+        </div>
+        <div class="item-2">
+            <button onclick="calcConfirm();">計算</button>
+        </div>
+    </div>
 
+    <script type="text/javascript" src="./js/main.js"></script>
+    <script type="text/javascript">
+        var tbody = document.getElementById('t-in');
+        for (i = 0; i < team; i++) {
+            var tr = document.createElement('tr');
+            var td0 = document.createElement('td');
+            td0.innerHTML = 't' + i;
+            tr.appendChild(td0);
 
-        <script type="text/javascript" src="./js/main.js"></script>
-        <script type="text/javascript">
-         var tbody = document.getElementById('t-in');
-         for (i = 0; i < team; i++){
-             var tr = document.createElement('tr');
-             var td0 = document.createElement('td');
-             td0.innerHTML = 't' + i;
-             tr.appendChild(td0);
+            var td1 = document.createElement('td');
+            td1.id = 'tpoint' + i;
+            td1.innerHTML = first_point;
+            tr.appendChild(td1);
 
-             var td1 = document.createElement('td');
-             td1.id = 'tpoint' + i;
-             td1.innerHTML = first_point;
-             tr.appendChild(td1);
+            var td2 = document.createElement('td');
+            td2.innerHTML = `<input id="latch${i}" type="text" value="" />`;
+            tr.appendChild(td2);
+            var td3 = document.createElement('td');
+            var pd = `<select id="sel${i}">`;
+            for (j = 0; j < 4; j++) {
+                pd += `<option value="${j}">${j + 1}</option>`;
+            }
+            pd += '</select>';
+            td3.innerHTML = pd;
+            tr.appendChild(td3);
 
-             var td2 = document.createElement('td');
-             td2.innerHTML = '<input id="latch' + i + '" type="text" />';
-             tr.appendChild(td2);
-             var td3 = document.createElement('td');
-             var pd = '<select id="sel' + i + '">';
-             for (j = 1; j <= 4; j++) {
-                 pd += '<option value="' + j + '">' + j + '</option>';
-             }
-             pd += '</select>';
-             td3.innerHTML = pd;
-             tr.appendChild(td3);
+            var sel = document.getElementById('sel' + i);
+            tbody.appendChild(tr);
+        }
+    </script>
+</body>
 
-             var sel = document.getElementById('sel' + i);
-             tbody.appendChild(tr);
-         }
-        </script>
-    </body>
 </html>
