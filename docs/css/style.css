@@ -29,7 +29,11 @@ table {
 }
 
 select {
-    font-size: 20px;
+    font-size: 16px;
+}
+
+.sm {
+    font-size: 14px;
 }
 
 button {
@@ -41,8 +45,8 @@ button {
 
 .head {
     display: grid;
-    grid-template-columns: 50vw 1fr;
-    width: 90%;
+    grid-template-columns: 75vw 1fr;
+    width: 100%;
 }
 
 .item-a {
@@ -59,7 +63,6 @@ button {
     padding: 5px;
 }
 
-
 .input {
     display: grid;
     grid-template-columns: 300px 1fr;
@@ -73,4 +76,39 @@ button {
 .item-2 {
     grid-row: 1 / 1;
     grid-column: 2 / 2;
+}
+
+.head-left {
+    display: grid;
+    grid-template-columns: 1fr 40px 40px 40px 40px;
+}
+
+.item-f {
+    grid-row: 1 / 1;
+    grid-column: 1 / 5;
+}
+
+.item-one {
+    grid-row: 1 / 1;
+    grid-column: 2 / 5;
+    }
+
+.item-two {
+    grid-row: 1 / 1;
+    grid-column: 3 / 5;
+}
+
+.item-three {
+    grid-row: 1 / 1;
+    grid-column: 4 / 5;
+}
+
+.item-four {
+    grid-row: 1 / 1;
+    grid-column: 5 / 5;
+}
+
+#ods-1, #ods-2, #ods-3, #ods-4 {
+    font-size: 15px;
+    width: 30px;
 }
