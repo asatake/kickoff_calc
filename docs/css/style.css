@@ -39,12 +39,31 @@ button {
     background: #da2;
 }
 
+.head {
+    display: grid;
+    grid-template-columns: 50vw 1fr;
+    width: 90%;
+}
+
+.item-a {
+    grid-row: 1 / 1;
+    grid-column: 1 / 2;
+    border: 1px #000 solid;
+    padding: 5px;
+}
+
+.item-b {
+    grid-row: 1 / 1;
+    grid-column: 2 / 2;
+    border: 1px #000 solid;
+    padding: 5px;
+}
+
+
 .input {
     display: grid;
     grid-template-columns: 300px 1fr;
 }
-
-
 
 .item-1 {
     grid-row: 1 / 1;
