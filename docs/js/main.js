@@ -75,15 +75,6 @@ function getObjectStore(store_name, mode) {
     return tx.objectStore(store_name);
 }
 
-function getBlob(key, store, success_callback) {
-    var req = store.get(key);
-    req.onsuccess = function(evt) {
-        var value = evt.target.result;
-        if (value)
-            success_callback(value.blob);
-    };
-}
-
 // DBがopen済みでないならopen
 if(typeof indexedDB.instance !== 'undefined') {
     openDb();
