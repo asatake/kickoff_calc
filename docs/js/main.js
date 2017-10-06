@@ -48,6 +48,7 @@
 const DB_NAME = "teams";
 const STORE_NAME = "points";
 const team = 10;
+const first_point = 10;
 var db;
 
 function openDb(){
