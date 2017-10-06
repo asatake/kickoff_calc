@@ -152,3 +152,20 @@ function calc(pointArray){
     }
     return result;
 }
+
+function reset() {
+    var rank = document.getElementById('first');
+    rank.options[0].selected = true;
+
+    for (var t = 0; t < team; t++) {
+        var l = document.getElementById('latch' + t);
+        var s = document.getElementById('sel' + t);
+        l.value = "";
+        s.options[0].selected = true;
+    }
+
+    for (var i = 1; i <= 4; i++) {
+        var o = document.getElementById('ods-' + i);
+        o.options[0].selected = true;
+    }
+}
